@@ -218,7 +218,7 @@
             </Grid.RowDefinitions>
 
             <!--#region Command and search bar. -->
-            <Grid VerticalAlignment="Top">
+            <Grid VerticalAlignment="Top" Height="35">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
@@ -230,21 +230,33 @@
                             OverflowButtonVisibility="Collapsed">
                     <AppBarButton x:Name="AB_backButton" 
                                   Icon="Back" 
+                                  IsCompact="True"
+                                  Margin="5,-3,0,0"
+                                  Width="40"
                                   Label="Back"
                                   ToolTipService.ToolTip="Go backwards one page"
                                   Click="AB_backButton_Click"/>
                     <AppBarButton x:Name="AB_forwardButton" 
                                   Icon="Forward" 
+                                  IsCompact="True"
+                                  Margin="0,-3,0,0"
+                                  Width="40"
                                   Label="Forward"
                                   ToolTipService.ToolTip="Go forwards one page"
                                   Click="AB_forwardButton_Click"/>
                     <AppBarButton x:Name="AB_refreshButton" 
                                   Icon="Refresh" 
+                                  IsCompact="True"
+                                  Margin="0,-3,0,0"
+                                  Width="40"
                                   Label="Refresh"
                                   ToolTipService.ToolTip="Refresh the current page"
                                   Click="AB_refreshButton_Click"/>
                     <AppBarButton x:Name="AB_homeButton" 
                                   Icon="Home" 
+                                  IsCompact="True"
+                                  Margin="0,-3,0,0"
+                                  Width="40"
                                   Label="Home"
                                   ToolTipService.ToolTip="Go Home"
                                   Click="AB_homeButton_Click"/>
@@ -253,12 +265,12 @@
                 <Rectangle Grid.Column="1"
                        HorizontalAlignment="Stretch"
                        Fill="{ThemeResource AppBarBorderThemeBrush}"/>
-                <TextBox Style="{StaticResource TextBoxStyle1}" 
-                         Grid.Column="1" 
+                <TextBox Style="{StaticResource TextBoxStyle1}"
+                         Grid.Column="1"
                          x:Name="AB_searchBox"
                          Text="www.bing.com"
                          VerticalAlignment="Stretch"
-                         FontSize="16"
+                         FontSize="12"
                          PlaceholderText="Search with a search engine or enter address"
                          IsSpellCheckEnabled="False"
                          KeyDown="AB_searchBox_KeyDown"
@@ -269,11 +281,17 @@
                             OverflowButtonVisibility="Collapsed">
                     <AppBarButton x:Name="AB_searchButton"
                                   Icon="Zoom"
+                                  IsCompact="True"
+                                  Margin="0,-3,0,0"
+                                  Width="40"
                                   Label="Search"
                                   ToolTipService.ToolTip="Search"
                                   Click="AB_searchButton_Click"/>
                     <AppBarButton x:Name="AB_settingsButton"
                                   Icon="Setting"
+                                  IsCompact="True"
+                                  Margin="0,-3,0,0"
+                                  Width="40"
                                   Label="Settings"
                                   ToolTipService.ToolTip="Change browser settings"
                                   Click="AB_settingsButton_Click"/>
