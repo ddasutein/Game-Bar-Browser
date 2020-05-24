@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.Gaming.XboxGameBar;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 // E1 = Not sure if it does anything, just trying to reduce memory footprint.
@@ -22,7 +24,9 @@ namespace GameBarBrowser
         Frame settingsFrame;
 
         TabGroup developingTabGroup;
-        
+
+        private XboxGameBarWidget browserWidget = null;
+
         public BrowserWidget()
         {
             this.InitializeComponent();
@@ -32,6 +36,28 @@ namespace GameBarBrowser
             CreateTab();
 
             Query(UserSettings.HomeURL);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            browserWidget = e.Parameter as XboxGameBarWidget;
+            browserWidget.RequestedThemeChanged += OnWidgetThemeChanged;
+        }
+
+        private async void OnWidgetThemeChanged(XboxGameBarWidget sender, object orgs)
+        {
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () =>
+            {
+                switch (browserWidget.RequestedTheme)
+                {
+                    case ElementTheme.Dark:
+                        this.RequestedTheme = ElementTheme.Dark;
+                        break;
+                    case ElementTheme.Light:
+                        this.RequestedTheme = ElementTheme.Light;
+                        break;
+                }
+            });
         }
 
         private TabGroup GetTabGroup(TabView webViewPage)
