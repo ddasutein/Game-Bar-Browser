@@ -8,6 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" FontWeight="SemiBold">
 
+    <Page.Resources>
+        <ResourceDictionary Source="ms-appx:///Microsoft.UI.Xaml/DensityStyles/Compact.xaml" />
+    </Page.Resources>
+
+
     <StackPanel Orientation="Vertical" 
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
